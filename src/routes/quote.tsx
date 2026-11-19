@@ -96,12 +96,20 @@ function Quote() {
             <Button type="submit" variant="quote" size="xl" className="w-full md:w-auto">
               Send enquiry
             </Button>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Or email us directly at{" "}
+            <p className="mt-3 flex flex-wrap items-center gap-x-1.5 text-sm text-muted-foreground">
+              <span>Or call</span>
+              <a href={company.phoneHref} className="font-medium text-primary hover:underline">
+                {company.phone}
+              </a>
+              <span aria-hidden="true" className="text-muted-foreground/50">|</span>
+              <a href={company.phone2Href} className="font-medium text-primary hover:underline">
+                {company.phone2}
+              </a>
+              <span>, or email us directly at</span>
               <a href={`mailto:${company.email}`} className="font-medium text-primary hover:underline">
                 {company.email}
               </a>
-              .
+              <span>.</span>
             </p>
           </div>
         </form>
