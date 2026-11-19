@@ -12,7 +12,7 @@ export const Route = createFileRoute("/products")({
       { title: "Products — Steel, Alloys, Industrial Equipment & Coffee | Kanak Industries" },
       {
         name: "description",
-        content: "Product categories sourced by Kanak Industries FZCO: steel, refractory materials, metal alloys, plant equipment, pumps and valves, electrical fittings and coffee.",
+        content: "Product categories sourced by Kanak Industries FZCO: steel, refractory materials, metal alloys, industrial machinery, pumps and valves, electrical fittings and coffee.",
       },
       { property: "og:title", content: "Products | Kanak Industries FZCO" },
       { property: "og:description", content: "Seven product categories available on a quotation basis from our Dubai trading office." },
@@ -38,7 +38,7 @@ function Products() {
           >
             <img
               src={c.image}
-              alt={c.name}
+              alt={c.alt}
               loading="lazy"
               width={1024}
               height={768}
