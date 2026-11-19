@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Factory, Globe2, Gauge, ShieldCheck, Ship } from "lucide-react";
+import { ArrowRight, Coffee, Factory, Globe2, Gauge, ShieldCheck, Ship } from "lucide-react";
 
 import heroImage from "@/assets/hero-port.jpg";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Dubai-based trading company since 2012: steel, metallurgical materials, industrial equipment, spares and coffee for buyers across Africa, the Middle East, Europe and Asia.",
+          "Dubai-based trading company since 2013: steel, refractory materials, metal alloys, industrial machinery, pumps and valves, electrical fittings and coffee for buyers across Africa, the Middle East, Europe and Asia.",
       },
       { property: "og:title", content: "Kanak Industries FZCO — International Trading & Industrial Supply" },
       {
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const divisionIcons = [Factory, Gauge, ShieldCheck];
+const divisionIcons = [Factory, Gauge, ShieldCheck, Coffee];
 
 function Index() {
   return (
@@ -107,7 +107,7 @@ function Index() {
           <h2 className="mt-3 max-w-2xl text-3xl font-extrabold text-charcoal md:text-4xl">
             Our focused divisions
           </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {divisions.map((d, i) => {
               const Icon = divisionIcons[i] ?? Factory;
               return (
@@ -169,7 +169,7 @@ function Index() {
             >
               <img
                 src={c.image}
-                alt={c.name}
+                alt={c.alt}
                 loading="lazy"
                 width={1024}
                 height={768}
