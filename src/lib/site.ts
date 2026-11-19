@@ -13,8 +13,12 @@ export const company = {
   addressLines: ["HDS Tower, Cluster F", "Al Thanyah Fifth, Jumeirah Lakes Towers", "Dubai, United Arab Emirates"],
   // Recipient for all enquiries: the Request a Quote form and every email link on the site use this address.
   email: "admin@kanak-industries.com",
+  // Listing order everywhere phone details appear: mobile first, then the office landline.
   phone: "+971 52 559 8069",
   phoneHref: "tel:+971525598069",
+  phone2: "+971 4 558 2958",
+  phone2Href: "tel:+97145582958",
+  // WhatsApp is on the mobile number only: the landline gets no WhatsApp link.
   whatsappHref: "https://wa.me/971525598069",
 };
 
@@ -114,3 +118,22 @@ export const markets = [
   { name: "Europe", note: "Industrial & trade buyers" },
   { name: "Asia", note: "South & Southeast Asia" },
 ];
+
+// Structured data for search engines: both numbers listed under "telephone", mobile first.
+export const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: company.name,
+  legalName: company.name,
+  foundingDate: String(company.established),
+  email: company.email,
+  telephone: [company.phone, company.phone2],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "HDS Tower, Cluster F, Al Thanyah Fifth",
+    addressLocality: "Jumeirah Lakes Towers",
+    addressRegion: "Dubai",
+    addressCountry: "AE",
+  },
+  areaServed: markets.map((m) => m.name),
+};
