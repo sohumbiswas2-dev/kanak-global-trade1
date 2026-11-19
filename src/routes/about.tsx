@@ -7,13 +7,13 @@ import { company, divisions, markets } from "@/lib/site";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Kanak Industries FZCO — Dubai Trading Company Since 2012" },
+      { title: `About Kanak Industries FZCO — Dubai Trading Company Since ${company.established}` },
       {
         name: "description",
-        content: "Kanak Industries FZCO is a B2B international trading company in Jumeirah Lakes Towers, Dubai, established 2012.",
+        content: `Kanak Industries FZCO is a B2B international trading company in Jumeirah Lakes Towers, Dubai, established ${company.established}.`,
       },
       { property: "og:title", content: "About Kanak Industries FZCO" },
-      { property: "og:description", content: "A Dubai-based B2B trading company serving Africa, the Middle East, Europe and Asia since 2012." },
+      { property: "og:description", content: `A Dubai-based B2B trading company serving Africa, the Middle East, Europe and Asia since ${company.established}.` },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <>
-      <PageIntro eyebrow="About us" title="Trading and industrial supply from Dubai since 2012">
+      <PageIntro eyebrow="About us" title={`Trading and industrial supply from Dubai since ${company.established}`}>
         {company.name} connects business buyers with sourcing and supply opportunities across global markets.
       </PageIntro>
       <section className="container-site grid gap-12 py-20 md:grid-cols-2">
