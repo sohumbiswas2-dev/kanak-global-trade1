@@ -11,7 +11,7 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact Kanak Industries FZCO — JLT, Dubai" },
       {
         name: "description",
-        content: `Contact Kanak Industries FZCO at HDS Tower, Cluster F, JLT, Dubai. Email ${company.email} or call ${company.phone}.`,
+        content: `Contact Kanak Industries FZCO at HDS Tower, Cluster F, JLT, Dubai. Email ${company.email}, call ${company.phone} or ${company.phone2}.`,
       },
       { property: "og:title", content: "Contact Kanak Industries FZCO" },
       { property: "og:description", content: "Reach our Dubai trading office by email, phone or visit us in Jumeirah Lakes Towers." },
@@ -26,7 +26,6 @@ function Contact() {
   const cards = [
     { icon: MapPin, label: "Office", content: company.addressLines.join(", "), href: undefined },
     { icon: Mail, label: "Email", content: company.email, href: `mailto:${company.email}` },
-    { icon: Phone, label: "Phone", content: company.phone, href: company.phoneHref },
   ];
   return (
     <>
@@ -47,6 +46,19 @@ function Contact() {
             )}
           </div>
         ))}
+        <div className="rounded-lg border border-border bg-card p-8 shadow-card">
+          <Phone className="h-6 w-6 text-primary" />
+          <p className="mt-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Phone</p>
+          <div className="mt-2 flex flex-wrap items-center gap-x-2 text-lg font-semibold text-charcoal">
+            <a href={company.phoneHref} className="hover:text-primary">
+              {company.phone}
+            </a>
+            <span aria-hidden="true" className="text-muted-foreground/40">|</span>
+            <a href={company.phone2Href} className="hover:text-primary">
+              {company.phone2}
+            </a>
+          </div>
+        </div>
       </section>
       <section className="container-site pb-20">
         <div className="flex flex-col items-start gap-4 rounded-lg bg-muted p-8 md:flex-row md:items-center md:justify-between">
