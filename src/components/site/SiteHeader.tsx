@@ -37,15 +37,22 @@ export function SiteHeader() {
   const onProducts = useLocation({ select: (l) => l.pathname.startsWith("/products") });
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
+   <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
       <div className="hidden bg-charcoal text-charcoal-muted md:block">
-        <div className="container-site flex h-9 items-center justify-end gap-6 text-xs">
+        <div className="container-site flex min-h-9 flex-wrap items-center justify-end gap-x-6 gap-y-1 py-1 text-xs">
           <a href={`mailto:${company.email}`} className="flex items-center gap-1.5 hover:text-charcoal-foreground">
             <Mail className="h-3.5 w-3.5" /> {company.email}
           </a>
-          <a href={company.phoneHref} className="flex items-center gap-1.5 hover:text-charcoal-foreground">
-            <Phone className="h-3.5 w-3.5" /> {company.phone}
-          </a>
+          <span className="flex flex-wrap items-center justify-end gap-x-1.5">
+            <Phone className="h-3.5 w-3.5" />
+            <a href={company.phoneHref} className="hover:text-charcoal-foreground">
+              {company.phone}
+            </a>
+            <span aria-hidden="true" className="px-1 text-charcoal-foreground/30">|</span>
+            <a href={company.phone2Href} className="hover:text-charcoal-foreground">
+              {company.phone2}
+            </a>
+          </span>
         </div>
       </div>
 
