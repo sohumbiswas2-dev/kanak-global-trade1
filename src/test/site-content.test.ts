@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { categories, company, divisions } from "@/lib/site";
+import { categories, company, divisions, organizationJsonLd } from "@/lib/site";
 
 describe("Company content rules", () => {
   it("shows 2013 as the established year", () => {
@@ -11,9 +11,23 @@ describe("Company content rules", () => {
     expect(company.email).toBe("admin@kanak-industries.com");
   });
 
-  it("uses +971 52 559 8069 for phone and WhatsApp links", () => {
+  it("keeps the mobile number first and correct", () => {
+    expect(company.phone).toBe("+971 52 559 8069");
     expect(company.phoneHref).toBe("tel:+971525598069");
+  });
+
+  it("adds the office landline as a second clickable number", () => {
+    expect(company.phone2).toBe("+971 4 558 2958");
+    expect(company.phone2Href).toBe("tel:+97145582958");
+  });
+
+  it("keeps WhatsApp on the mobile number only", () => {
     expect(company.whatsappHref).toBe("https://wa.me/971525598069");
+    expect(company.whatsappHref).not.toContain("97145582958");
+  });
+
+  it("lists both numbers under telephone in the JSON-LD", () => {
+    expect(organizationJsonLd.telephone).toEqual(["+971 52 559 8069", "+971 4 558 2958"]);
   });
 
   it("lists product categories in the agreed order with Coffee last", () => {
