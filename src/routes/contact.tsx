@@ -11,7 +11,7 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact Kanak Industries FZCO — JLT, Dubai" },
       {
         name: "description",
-        content: "Contact Kanak Industries FZCO at HDS Tower, Cluster F, JLT, Dubai. Email frontdesk@kanak-industries.com or call +971 56 645 9911.",
+        content: `Contact Kanak Industries FZCO at HDS Tower, Cluster F, JLT, Dubai. Email ${company.email} or call ${company.phone}.`,
       },
       { property: "og:title", content: "Contact Kanak Industries FZCO" },
       { property: "og:description", content: "Reach our Dubai trading office by email, phone or visit us in Jumeirah Lakes Towers." },
