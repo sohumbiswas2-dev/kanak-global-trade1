@@ -20,7 +20,7 @@ export const Route = createFileRoute("/quote")({
       { title: "Request a Quote | Kanak Industries FZCO" },
       {
         name: "description",
-        content: "Send a quotation enquiry to Kanak Industries FZCO for steel, alloys, refractory materials, industrial equipment, electrical fittings or coffee.",
+        content: "Send a quotation enquiry to Kanak Industries FZCO for steel, refractory materials, metal alloys, industrial machinery, pumps and valves, electrical fittings or coffee.",
       },
       { property: "og:title", content: "Request a Quote | Kanak Industries FZCO" },
       { property: "og:description", content: "Tell us your product, specification, quantity and destination to receive a quotation." },
