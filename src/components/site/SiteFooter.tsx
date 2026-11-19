@@ -33,11 +33,17 @@ export function SiteFooter() {
                 {company.email}
               </a>
             </li>
-            <li>
-              <a href={company.phoneHref} className="flex gap-3 hover:text-charcoal-foreground">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                {company.phone}
-              </a>
+            <li className="flex gap-3">
+              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <span className="flex flex-wrap items-center gap-x-2">
+                <a href={company.phoneHref} className="hover:text-charcoal-foreground">
+                  {company.phone}
+                </a>
+                <span aria-hidden="true" className="text-charcoal-foreground/30">|</span>
+                <a href={company.phone2Href} className="hover:text-charcoal-foreground">
+                  {company.phone2}
+                </a>
+              </span>
             </li>
           </ul>
         </div>
